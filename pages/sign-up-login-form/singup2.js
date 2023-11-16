@@ -28,9 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
           });
   
           if (response.status === 201) {
-            console.log("User created successfully");
-            window.location.href = "../../index.html";
+            console.log("User created successfully(signup2)");
             // You can add code here to handle the case of successful user creation, like showing a success message or redirecting the user to the login page.
+
+            // Redirect to the main HTML page after successful signup
+            window.location.href = "../../index.html";
           } else if (response.status === 409) {
             console.log("User already exists");
             // You can add code here to handle the case of a user already existing with the provided username.
@@ -47,5 +49,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   
     // ... (other existing code)
-  });
-  
+});
