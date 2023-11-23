@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>EEP-HOTELLING</title>
+    <meta name="description" content="">
+    <!-- The compiled CSS file -->
+    <link rel="stylesheet" href="css/production.css">
+    <!-- Web fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
+    <!-- favicon.ico. Place these in the root directory. -->
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+
+<body class="has-animations">
+    <!-- Header -->
+    <header class="pt2 pb1 align--center">
+        <div class="container">
+            <p>Welcome to</p>
+            <h1 title="EEP HOTELLING"><img class="logo" src="img/logo.svg" alt="EEP HOTELLING"></h1>
+        </div>
+    </header>
+    <!-- Body -->
+    <main>
+        <div class="container">
+            <!-- Basic Info Form -->
+            <section id="basicInfoFormSection">
+                <div class="mb2 align--center">
+                    <h3 class="mb1">Start Booking Your Hotel Now</h3>
+                    <p>Start By Entering Your Personal Details&nbsp;</p>
+                </div>
+                <form id="bookingForm" onsubmit="submitBasicInfo(event)">
+                    <div class="grid-row">
+                        <div class="grid-column span-half mt1">
+                            <label class="label" for="name">Name</label>
+                            <input class="form-control" name="name" id="name">
+                        </div>
+                        <div class="grid-column span-half mt1">
+                            <label class="label" for="email">Email</label>
+                            <input class="form-control" name="email" id="email" type="email">
+                        </div>
+                    </div>
+                    <label class="label mt1" for="Number">Contact Number</label>
+                    <input class="form-control" name="Number" id="Number">
+                    <div class="align--right mt1">
+                        <button class="btn btn--outline" type="submit">Submit</button>
+                    </div>
+                </form>
+            </section>
+            <!-- Hotel Info Form -->
+            <section id="hotelFormSection" style="display: none;">
+                <div class="mb2 align--center">
+                    <h3 class="mb1">Enter Hotel Information</h3>
+                    <p>Provide details about the hotel&nbsp;</p>
+                </div>
+                <form id="hotelForm" onsubmit="submitHotelInfo(event)">
+                    <div class="grid-row">
+                        <div class="grid-column span-half mt1">
+                            <label class="label" for="hotelName">Hotel Name</label>
+                            <input class="form-control" name="hotelName" id="hotelName">
+                        </div>
+                        <div class="grid-column span-half mt1">
+                            <label class="label" for="country">Country</label>
+                            <input class="form-control" name="country" id="country">
+                        </div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="grid-column span-half mt1">
+                            <label class="label" for="city">City</label>
+                            <input class="form-control" name="city" id="city">
+                        </div>
+                        <div class="grid-column span-half mt1">
+                            <label class="label" for="cost">Cost</label>
+                            <input class="form-control" name="cost" id="cost">
+                        </div>
+                    </div>
+                    <div class="align--right mt1">
+                        <button class="btn btn--outline" type="submit">Submit Hotel Info</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="pt2 pb2">
+        <div class="container align--center">
+            <p>W5723 Lake View Chester, CA 96020</p>
+            <p>Design by <a href="https://www.papayatemplates.com" class="link">Papaya.</a></p>
+            <ul class="no-bullets list--inline mt1">
+                <li class="mr1"><a href="https://www.facebook.com" class="link"><img class="icon" src="/img/facebook.svg" alt="Facebook"></a></li>
+                <li class="mr1"><a href="https://www.twitter.com" class="link"><img class="icon" src="/img/twitter.svg" alt="Twitter"></a></li>
+                <li><a href="https://www.instagram.com" class="link"><img class="icon" src="/img/instagram.svg" alt="Instagram"></a></li>
+            </ul>
+            <p>&copy; Camp Chippewa</p>
+        </div>
+    </footer>
+    <!-- Scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <!-- The compiled JavaScript file -->
+    <script src="js/production.js" defer></script>
+    <script src="js/bookform2.js" defer></script>
+    </body>
+</html>
