@@ -108,27 +108,62 @@
         <!-- Contact -->
         <section class="bg--secondary-color pt3 pb3">
             <div class="container">
-                <div class="mb2 align--center">
-                    <h3 class="mb1">Start Booking Your Hotel Now</h3>
-                    <p>Start By Entering Your Personal Details&nbsp;</p>
-                </div>
-                <form id="bookingForm" onsubmit="submitForm(event)">
-                    <div class="grid-row">
-                        <div class="grid-column span-half mt1">
-                            <label class="label" for="name">Name</label>
-                            <input class="form-control" id="name" name="name">
-                        </div>
-                        <div class="grid-column span-half mt1">
-                            <label class="label" for="email">Email</label>
-                            <input class="form-control" id="email" type="email" name="email">
-                        </div>
+                <!-- Basic Info Form -->
+                <section id="basicInfoFormSection">
+                    <div class="mb2 align--center">
+                        <h3 class="mb1">Start Booking Your Hotel Now</h3>
+                        <p>Start By Entering Your Personal Details&nbsp;</p>
                     </div>
-                    <label class="label mt1" for="Number">Contact Number</label>
-                    <input class="form-control" id="Number" name="Number">
-                    <div class="align--right mt1">
-                        <button class="btn btn--outline" type="submit">Submit</button>
+                    <form id="bookingForm" onsubmit="submitBasicInfo(event)">
+                        <div class="grid-row">
+                            <div class="grid-column span-half mt1">
+                                <label class="label" for="name">Name</label>
+                                <input class="form-control" name="name" id="name">
+                            </div>
+                            <div class="grid-column span-half mt1">
+                                <label class="label" for="email">Email</label>
+                                <input class="form-control" name="email" id="email" type="email">
+                            </div>
+                        </div>
+                        <label class="label mt1" for="Number">Contact Number</label>
+                        <input class="form-control" name="Number" id="Number">
+                        <div class="align--right mt1">
+                            <button class="btn btn--outline" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </section>
+                <!-- Hotel Info Form -->
+                <section id="hotelFormSection" style="display: none;">
+                    <div class="mb2 align--center">
+                        <h3 class="mb1">Enter Hotel Information</h3>
+                        <p>Provide details about the hotel&nbsp;</p>
                     </div>
-                </form>
+                    <form id="hotelForm" onsubmit="submitHotelInfo(event)">
+                        <div class="grid-row">
+                            <div class="grid-column span-half mt1">
+                                <label class="label" for="hotelName">Hotel Name</label>
+                                <input class="form-control" name="hotelName" id="hotelName">
+                            </div>
+                            <div class="grid-column span-half mt1">
+                                <label class="label" for="country">Country</label>
+                                <input class="form-control" name="country" id="country">
+                            </div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="grid-column span-half mt1">
+                                <label class="label" for="city">City</label>
+                                <input class="form-control" name="city" id="city">
+                            </div>
+                            <div class="grid-column span-half mt1">
+                                <label class="label" for="cost">Cost</label>
+                                <input class="form-control" name="cost" id="cost">
+                            </div>
+                        </div>
+                        <div class="align--right mt1">
+                            <button class="btn btn--outline" type="submit">Submit Hotel Info</button>
+                        </div>
+                    </form>
+                </section>
             </div>
         </section>
         
@@ -153,7 +188,7 @@
 
     <!-- The compiled JavaScript file -->
     <script src="js/production.js"></script>
-    <script src="js/bookform.js"></script>
+    <script src="js/bookform3.js"></script>
 
     </body>
 </html>

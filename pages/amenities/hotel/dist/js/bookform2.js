@@ -3,7 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const hotelInfoSection = document.getElementById('hotelFormSection');
     const hotelInfoForm = document.getElementById('hotelForm');
 
-    basicInfoForm.addEventListener("submit", async function (event) {
+    // Define the submitBasicInfo function
+    window.submitBasicInfo = async function (event) {
+        console.log("submitBasicInfo function called");
         event.preventDefault();
 
         const nameInput = basicInfoForm.querySelector('input[name="name"]');
@@ -47,9 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             console.error("One or more basic information form inputs are null");
         }
-    });
+    };
 
     hotelInfoForm.addEventListener("submit", async function (event) {
+        console.log("submitHotelInfo function called");
         event.preventDefault();
 
         // Retrieve hotel-related information from the hotel form
