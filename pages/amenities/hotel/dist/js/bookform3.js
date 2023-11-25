@@ -1,3 +1,5 @@
+// bookform3.js
+
 document.addEventListener("DOMContentLoaded", function () {
     const basicInfoForm = document.getElementById('bookingForm');
     const hotelInfoSection = document.getElementById('hotelFormSection');
@@ -29,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 if (response.status === 201) {
+                    const { bookingId } = await response.json();
+
                     console.log("Basic information submitted successfully");
 
                     // Hide the basic information form
@@ -36,6 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     // Show the hotel-related information form
                     hotelInfoSection.style.display = "block";
+
+                    // Store the booking ID for later use
+                    basicInfoForm.dataset.bookingId = bookingId;
                 } else {
                     console.error("Failed to submit basic information");
                     // Handle other status codes or errors
@@ -52,8 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
     hotelInfoForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        // Retrieve hotel-related information from the hotel form
-        // Modify this part based on the actual form fields for hotel information
+        const bookingId = basicInfoForm.dataset.bookingId;
+
         const hotelNameInput = hotelInfoForm.querySelector('input[name="hotelName"]');
         const countryInput = hotelInfoForm.querySelector('input[name="country"]');
         const cityInput = hotelInfoForm.querySelector('input[name="city"]');
@@ -72,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
+                        bookingId: bookingId,
                         hotelName: hotelName,
                         country: country,
                         city: city,
@@ -81,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (response.status === 201) {
                     console.log("Hotel information submitted successfully");
-
                     // You can add further actions after successfully submitting hotel information
                 } else {
                     console.error("Failed to submit hotel information");
@@ -96,3 +103,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+// Define the submitBasicInfo function
+window.submitBasicInfo = async function (event) {
+    document.getElementById('bookingForm').dispatchEvent(new Event("submit"));
+};
+
+// Define the submitHotelInfo function
+window.submitHotelInfo = async function (event) {
+    document.getElementById('hotelForm').dispatchEvent(new Event("submit"));
+};
