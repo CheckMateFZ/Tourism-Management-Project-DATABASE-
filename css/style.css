@@ -134,9 +134,65 @@ body {
 .u-margin-bottom-big {
   margin-bottom: 8rem; }
 
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+  }
+  
+  .dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .dropdown a:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+  }
+  
+  .dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .dropdown a:hover {
+    background-color: #f9f9f9;
+  }
 .header {
   height: 95vh;
   position: relative; }
+  .header__user-bar {
+    position: fixed;
+    top: 20px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+    z-index: 1000; /* Adjust the z-index as needed */
+}
+.header__username
+{
+  color: black;
+}
+.header__user-icon {
+    width: 24px; /* Adjust the width of the icon as needed */
+    height: 24px; /* Adjust the height of the icon as needed */
+}
   .header__slider--1 {
     position: absolute;
     top: 0;

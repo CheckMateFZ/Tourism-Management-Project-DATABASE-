@@ -28,8 +28,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (response.status === 200) {
                         console.log("User logged in successfully");
 
-                        // Store user information in localStorage
-                        localStorage.setItem("loggedInUser", JSON.stringify({ email }));
+                        // Extract user information from the response
+                        const userData = await response.json();
+
+                        // Store user information and login status in localStorage
+                        localStorage.setItem("loggedInUser", JSON.stringify({
+                            email: userData.email,
+                            userId: userData.userId,
+                            username: userData.username,
+                            isLoggedIn: true
+                        }));
 
                         // Redirect to the main HTML page
                         window.location.href = "../../index.html";

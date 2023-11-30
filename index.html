@@ -1,44 +1,61 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link href='http://fonts.googleapis.com/css?family=Lora|Satisfy:100,300,400,700,900' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lora|Satisfy:100,300,400,700,900' rel='stylesheet'
+		type='text/css'>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!--FAVICONS-->
 
-    <!--FAVICONS-->
-    <link rel="apple-touch-icon" sizes="180x180" href="vendors/favicon/apple-icon-logo_180x180.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="vendors/favicon/tour-logo_32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="vendors/favicon/tour-logo_16x16.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="vendors/favicon/tour-logo_512x512.png">
-    <link rel="manifest" href="vendors/favicon/site.webmanifest">
+	<link rel="apple-touch-icon" sizes="180x180" href="vendors/favicon/apple-icon-logo_180x180.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="vendors/favicon/tour-logo_32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="vendors/favicon/tour-logo_16x16.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="vendors/favicon/tour-logo_512x512.png">
+	<link rel="manifest" href="vendors/favicon/site.webmanifest">
 
 	<title>Epic Expenditure Planner-A great Experience</title>
 </head>
 
 <body>
-       <header class="header">
-        <div class="header__slider--1"></div>
-        <div class="header__slider--2"></div>
-        <div class="header__slider--3"></div>
-        <div class="header__slider--4"></div>
-        
-        <div class="header__logo-box">
-            <img src="img/epic-expenditure-logo.png" alt="Epic Expenditure Logo" class="header__logo">
-        </div>
-        <div class="header__text-box">
+	<header class="header">
+		<!-- Your existing slider divs -->
+		<div class="header__slider--1"></div>
+		<div class="header__slider--2"></div>
+		<div class="header__slider--3"></div>
+		<div class="header__slider--4"></div>
+
+		<div class="header__logo-box">
+			<img src="img/epic-expenditure-logo.png" alt="Epic Expenditure Logo" class="header__logo">
+		</div>
+
+		<div class="header__text-box">
 			<h1 class="heading-primary">
 				<span class="heading-primary--main">Epic Expenditure Planner</span>
 				<span class="heading-primary--sub">See the world with us</span>
 			</h1>
 		</div>
-        
-        <div class="header__btn-box">
-			<a href="pages/sign-up-login-form/index.html" class="btn btn--brown " >Get Started Here</a>
-		</div>
-        
-       </header>
 
-       <div class="about-section">
+		<div class="header__btn-box">
+			<a href="pages/sign-up-login-form/index.html" class="btn btn--brown">Get Started Here</a>
+		</div>
+
+		<!-- New user bar -->
+		<div class="header__user-bar">
+			<div class="user-icon" onclick="toggleUserDropdown()">
+			  <img src="user-solid.svg" alt="User Icon" class="header__user-icon">
+			  <div class="dropdown" id="userDropdown">
+				<a href="#">Dashboard</a>
+				<a href="#" onclick="handleLogout()">Logout</a>
+			  </div>
+			</div>
+			<!-- Display the username -->
+			<div class="header__username" style="display: none;"></div>
+		  </div>
+	</header>
+
+	<div class="about-section">
 		<h2 class="heading-secondary">
 			<div class="u-align-center u-margin-bottom-big">
 				Welcome to Epic Expenditure PLanning!
@@ -50,14 +67,16 @@
 					Unlock Your Travel Potential
 				</h3>
 				<p class="paragraph">
-					Open the door to endless travel possibilities as you unlock the potential for unforgettable adventures,
+					Open the door to endless travel possibilities as you unlock the potential for unforgettable
+					adventures,
 					enriching experiences, and memorable encounters.
 				</p>
 				<h3 class="heading-tertiary u-margin-bottom-small">
 					Indulge in Breathtaking Delights During Your Stay
 				</h3>
 				<p class="paragraph">
-					Immerse yourself in a captivating retreat, where every moment is graced with breathtaking scenic delights. 
+					Immerse yourself in a captivating retreat, where every moment is graced with breathtaking scenic
+					delights.
 				</p>
 				<h3 class="heading-tertiary u-margin-bottom-small">
 					Join Our Premier Travel Community
@@ -70,21 +89,16 @@
 			</div>
 			<div class="col-1-of-2">
 				<div class="composition">
-					<img srcset="ihttps://res.cloudinary.com/drfys6xhi/image/upload/f_auto/v1611339121/img-1_s3obuo.jpg 1000w, https://res.cloudinary.com/drfys6xhi/image/upload/w_300,f_auto/v1611339121/img-1_s3obuo.jpg 300w" 
-						sizes="(max-width:61.9em) 20vw, (max-width:48em) 21vw, (max-width:36em) 30vw, 252px" 
-						class="composition__img composition__img--1" 
-						alt="Image 1" 
+					<img srcset="ihttps://res.cloudinary.com/drfys6xhi/image/upload/f_auto/v1611339121/img-1_s3obuo.jpg 1000w, https://res.cloudinary.com/drfys6xhi/image/upload/w_300,f_auto/v1611339121/img-1_s3obuo.jpg 300w"
+						sizes="(max-width:61.9em) 20vw, (max-width:48em) 21vw, (max-width:36em) 30vw, 252px"
+						class="composition__img composition__img--1" alt="Image 1"
 						src="https://res.cloudinary.com/drfys6xhi/image/upload/v1611339121/img-1_s3obuo.jpg">
-					<img srcset="img/img-2.jpg 1999w, img/img-2-small.jpg 345w" 
-						sizes="(max-width:61.9em) 20vw, (max-width:48em) 21vw, (max-width:36em) 30vw, 252px" 
-						class="composition__img composition__img--2" 
-						alt="Image 2" 
-						src="img/img-2.jpg">
-					<img srcset="img/img-3.jpg 1000w, img/img-3-small.jpg 300w" 
-						sizes="(max-width:61.9em) 20vw, (max-width:48em) 21vw, (max-width:36em) 30vw, 252px" 
-						class="composition__img composition__img--3" 
-						alt="Image 3" 
-						src="img/img-3.jpg">
+					<img srcset="img/img-2.jpg 1999w, img/img-2-small.jpg 345w"
+						sizes="(max-width:61.9em) 20vw, (max-width:48em) 21vw, (max-width:36em) 30vw, 252px"
+						class="composition__img composition__img--2" alt="Image 2" src="img/img-2.jpg">
+					<img srcset="img/img-3.jpg 1000w, img/img-3-small.jpg 300w"
+						sizes="(max-width:61.9em) 20vw, (max-width:48em) 21vw, (max-width:36em) 30vw, 252px"
+						class="composition__img composition__img--3" alt="Image 3" src="img/img-3.jpg">
 				</div>
 			</div>
 		</div>
@@ -94,69 +108,77 @@
 	<div class="amenities-section">
 		<div class="u-align-center u-margin-bottom-big">
 			<h2 class="heading-secondary">
-					Tour Amenities
-				</div>
-			</h2>
+				Tour Amenities
+		</div>
+		</h2>
 
-			<div class="row">
-				<div class="col-1-of-4">
-					<div class="amenity-box amenity-box--1" onclick="openNewPage('pages/amenities/hotels/index.html')">
-						<div class="amenity-box__overlay"></div>
-						<h3 class="amenity-box__title">Lodge in Our Comfort
+		<div class="row">
+			<div class="col-1-of-4">
+				<div class="amenity-box amenity-box--1" onclick="openNewPage('pages/amenities/hotels/index.html')">
+					<div class="amenity-box__overlay"></div>
+					<h3 class="amenity-box__title">Lodge in Our Comfort
+					</h3>
+					<div class="amenity-box__content">
+						<i class="amenity-box__icon icon-basic-video"></i>
+						<h3 class="amenity-box__heading heading-tertiary u-margin-bottom-small">Board for a Memorable
+							Stay</h3>
+						<p class="amenity-box__text">
+							Experience a stay that combines luxury and warmth, creating an unforgettable home away from
+							home.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-1-of-4">
+				<div class="amenity-box amenity-box--2">
+					<div class="amenity-box__overlay"></div>
+					<h3 class="amenity-box__title">Glide through the Clouds</h3>
+					<div class="amenity-box__content">
+						<i class="amenity-box__icon icon-basic-pin1"></i>
+						<h3 class="amenity-box__heading heading-tertiary u-margin-bottom-small">Travel to New Horizons
 						</h3>
-						<div class="amenity-box__content">
-							<i class="amenity-box__icon icon-basic-video"></i>
-							<h3 class="amenity-box__heading heading-tertiary u-margin-bottom-small">Board for a Memorable Stay</h3>
-							<p class="amenity-box__text">
-								Experience a stay that combines luxury and warmth, creating an unforgettable home away from home.
-							</p>
-						</div>
+						<p class="amenity-box__text">
+							Experience the joy of flying through our exceptional services, where every mile is an
+							opportunity to revel in comfort and convenience.
+						</p>
 					</div>
 				</div>
-				<div class="col-1-of-4">
-					<div class="amenity-box amenity-box--2">
-						<div class="amenity-box__overlay"></div>
-						<h3 class="amenity-box__title">Glide through the Clouds</h3>
-						<div class="amenity-box__content">
-							<i class="amenity-box__icon icon-basic-pin1"></i>
-							<h3 class="amenity-box__heading heading-tertiary u-margin-bottom-small">Travel to New Horizons</h3>
-							<p class="amenity-box__text">
-								Experience the joy of flying through our exceptional services, where every mile is an opportunity to revel in comfort and convenience.
-							</p>
-						</div>
+			</div>
+			<div class="col-1-of-4">
+				<div class="amenity-box amenity-box--3">
+					<div class="amenity-box__overlay"></div>
+					<h3 class="amenity-box__title">Commute in Comfort</h3>
+					<div class="amenity-box__content">
+						<i class="amenity-box__icon icon-basic-cup"></i>
+						<h3 class="amenity-box__heading heading-tertiary u-margin-bottom-small">Transportation
+							Excellence</h3>
+						<p class="amenity-box__text">
+							Enjoy a smooth and comfortable ride that caters to your convenience, making every trip a
+							hassle-free and enjoyable experience
+						</p>
 					</div>
 				</div>
-				<div class="col-1-of-4">
-					<div class="amenity-box amenity-box--3">
-						<div class="amenity-box__overlay"></div>
-						<h3 class="amenity-box__title">Commute in Comfort</h3>
-						<div class="amenity-box__content">
-							<i class="amenity-box__icon icon-basic-cup"></i>
-							<h3 class="amenity-box__heading heading-tertiary u-margin-bottom-small">Transportation Excellence</h3>
-							<p class="amenity-box__text">
-								Enjoy a smooth and comfortable ride that caters to your convenience, making every trip a hassle-free and enjoyable experience
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-1-of-4">
-					<div class="amenity-box amenity-box--4">
-						<div class="amenity-box__overlay"></div>
-						<h3 class="amenity-box__title">Discover the Extraordinary</h3>
-						<div class="amenity-box__content">
-							<i class="amenity-box__icon icon-basic-home"></i>
-							<h3 class="amenity-box__heading heading-tertiary u-margin-bottom-small">Witness Unforgettable Moments</h3>
-							<p class="amenity-box__text">
-								Enjoy a smooth and comfortable ride that caters to your convenience, making every trip a hassle-free and enjoyable experience
-							</p>
-						</div>
+			</div>
+			<div class="col-1-of-4">
+				<div class="amenity-box amenity-box--4">
+					<div class="amenity-box__overlay"></div>
+					<h3 class="amenity-box__title">Discover the Extraordinary</h3>
+					<div class="amenity-box__content">
+						<i class="amenity-box__icon icon-basic-home"></i>
+						<h3 class="amenity-box__heading heading-tertiary u-margin-bottom-small">Witness Unforgettable
+							Moments</h3>
+						<p class="amenity-box__text">
+							Enjoy a smooth and comfortable ride that caters to your convenience, making every trip a
+							hassle-free and enjoyable experience
+						</p>
 					</div>
 				</div>
 			</div>
 		</div>
-	
-	
-		
+	</div>
+
+
+
 	<div class="testimonials-section">
 		<h2 class="heading-secondary">
 			<div class="u-align-center u-margin-bottom-big">
@@ -166,7 +188,7 @@
 		<div class="bg-video">
 			<video class="bg-video__content" autoplay muted loop>
 				<source src="img/video.mp4" type="video/mp4">
-					Your browser does not support the video
+				Your browser does not support the video
 			</video>
 			<div class="bg-video__overlay"></div>
 		</div>
@@ -178,8 +200,11 @@
 					<figcaption class="testimonial__caption">Seher</figcaption>
 				</figure>
 				<div class="testimonial__text">
-					<h3 class="heading-tertiary u-margin-bottom-small">Exceptional Service and Unparalleled Experiences</h3>
-					<p class="testimonial__para">The best decision I made was choosing [Touring Company Name] for my vacation. From breathtaking landscapes to seamless logistics, they ensured my trip was nothing short of perfection.</p>
+					<h3 class="heading-tertiary u-margin-bottom-small">Exceptional Service and Unparalleled Experiences
+					</h3>
+					<p class="testimonial__para">The best decision I made was choosing [Touring Company Name] for my
+						vacation. From breathtaking landscapes to seamless logistics, they ensured my trip was nothing
+						short of perfection.</p>
 				</div>
 			</div>
 
@@ -189,8 +214,10 @@
 					<figcaption class="testimonial__caption">Seher2</figcaption>
 				</figure>
 				<div class="testimonial__text">
-					<h3 class="heading-tertiary u-margin-bottom-small">Memories That Will Last a Lifetime - Highly Recommended!  </h3>
-					<p class="testimonial__para">I couldn't have asked for a better tour experience! The team at EEP made sure every moment was filled with adventure and comfort. </p>
+					<h3 class="heading-tertiary u-margin-bottom-small">Memories That Will Last a Lifetime - Highly
+						Recommended! </h3>
+					<p class="testimonial__para">I couldn't have asked for a better tour experience! The team at EEP
+						made sure every moment was filled with adventure and comfort. </p>
 				</div>
 			</div>
 		</div>
@@ -217,11 +244,11 @@
 								<li>Premium hotel accommodations at top-rated destinations</li>
 								<li>Priority booking for exclusive flight arrangements</li>
 								<li>Personalized cab service for seamless travel experiences</li>
-								
+
 							</ul>
-						</div> 
+						</div>
 					</div>
-					<div class="plan__side plan__side--back plan__side--back-1"> 
+					<div class="plan__side plan__side--back plan__side--back-1">
 						<div class="plan__button">
 							<div class="plan__cost-box">
 								<p class="plan__cost-value">$12000</p>
@@ -246,11 +273,11 @@
 								<li>Luxurious hotel stays at renowned destinations</li>
 								<li>Priority and flexible flight arrangements tailored to your schedule</li>
 								<li>Premium chauffeur service for a comfortable and stylish travel experience</li>
-								
+
 							</ul>
-						</div> 
+						</div>
 					</div>
-					<div class="plan__side plan__side--back plan__side--back-2"> 
+					<div class="plan__side plan__side--back plan__side--back-2">
 						<div class="plan__button">
 							<div class="plan__cost-box">
 								<p class="plan__cost-value">$7500</p>
@@ -272,13 +299,13 @@
 						</h4>
 						<div class="plan__bullets">
 							<ul>
-                                <li>Exquisite hotel stays at handpicked premium destinations</li>
+								<li>Exquisite hotel stays at handpicked premium destinations</li>
 								<li>Flexible and convenient flight arrangements for hassle-free travel</li>
 								<li>Private chauffeur service for a luxurious and comfortable journey</li>
 							</ul>
-						</div> 
+						</div>
 					</div>
-					<div class="plan__side plan__side--back plan__side--back-3"> 
+					<div class="plan__side plan__side--back plan__side--back-3">
 						<div class="plan__button">
 							<div class="plan__cost-box">
 								<p class="plan__cost-value">$3500</p>
@@ -311,16 +338,19 @@
 							<label for="email" class="form__label">Email Address</label>
 						</div>
 						<div class="form__radio-group u-margin-bottom-medium">
-							<input type="radio" class="form__radio-input" id="platinum" name ="membership">
-							<label for="platinum" class="form__radio-label"><span class="form__radio-button"></span>Sapphire Membership</label>
+							<input type="radio" class="form__radio-input" id="platinum" name="membership">
+							<label for="platinum" class="form__radio-label"><span
+									class="form__radio-button"></span>Sapphire Membership</label>
 						</div>
 						<div class="form__radio-group">
-							<input type="radio" class="form__radio-input" id="junior" name ="membership">
-							<label for="junior" class="form__radio-label"><span class="form__radio-button"></span>Royal membership</label>
+							<input type="radio" class="form__radio-input" id="junior" name="membership">
+							<label for="junior" class="form__radio-label"><span class="form__radio-button"></span>Royal
+								membership</label>
 						</div>
 						<div class="form__radio-group">
-							<input type="radio" class="form__radio-input" id="social" name ="membership">
-							<label for="social" class="form__radio-label"><span class="form__radio-button"></span>Elite Membership</label>
+							<input type="radio" class="form__radio-input" id="social" name="membership">
+							<label for="social" class="form__radio-label"><span class="form__radio-button"></span>Elite
+								Membership</label>
 						</div>
 						<div class="form__group">
 							<textarea class="form__textarea" name="message" placeholder="Your message"></textarea>
@@ -335,13 +365,15 @@
 	</section>
 
 	<footer class="footer">
-			<div class="footer__logo-box">
-				<picture class="footer__logo">
-					<source srcset="img/lakeview-logo-only-highres.png 1px, img/lakeview-logo-only-lowres.png 1x" media="(max-width:36em)">
-					<img srcset="img/epic-expenditure-logo.png , img/epic-expenditure-logo-small.png 1x" src="img/epic-expenditure-logo-small.png" alt="Lakeview Logo">
-				</picture>
-				
-			</div>
+		<div class="footer__logo-box">
+			<picture class="footer__logo">
+				<source srcset="img/lakeview-logo-only-highres.png 1px, img/lakeview-logo-only-lowres.png 1x"
+					media="(max-width:36em)">
+				<img srcset="img/epic-expenditure-logo.png , img/epic-expenditure-logo-small.png 1x"
+					src="img/epic-expenditure-logo-small.png" alt="Lakeview Logo">
+			</picture>
+
+		</div>
 		<div class="row">
 			<div class="col-1-of-2">
 				<div class="footer__navigation">
@@ -358,21 +390,46 @@
 
 			<div class="col-1-of-2">
 				<p class="footer__copyright">
-					
 
-This webpage has been created by <a href="#" class="footer__author">FAEZ SIQQIQUI </a> and <a href="#" class="footer__author"> SEHER SIDDIQUE</a><br>
-	
-	
-	mo.faez.sidd@gmail.com
-	<br>
-	sehersidd87@gmail.com
+
+					This webpage has been created by <a href="#" class="footer__author">FAEZ SIQQIQUI </a> and <a
+						href="#" class="footer__author"> SEHER SIDDIQUE</a><br>
+
+
+					mo.faez.sidd@gmail.com
+					<br>
+					sehersidd87@gmail.com
 
 				</p>
 			</div>
 
 		</div>
 	</footer>
-
+	<script>
+		// Retrieve data from sessionStorage
+		const storedData = sessionStorage.getItem("loggedInUser");
+		console.log("Stored Data:", storedData);
+			
+		if (storedData) {
+		  // Parse the JSON data
+		  const userData = JSON.parse(storedData);
+		  console.log("User Data:", userData);
+		  // Check if the user is logged in
+		  if (userData.isLoggedIn) {
+			// Update the DOM with the username
+			const usernameElement = document.querySelector(".header__username");
+	  
+			if (usernameElement) {
+			  // Set the text content to the username
+			  usernameElement.textContent = userData.username;
+			  // Show the username element
+			  usernameElement.style.display = "block";
+			}
+		  }
+		}
+	  </script>
+	  
 	<script src="index.js"></script>
 </body>
+
 </html>
