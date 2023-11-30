@@ -114,7 +114,7 @@
 
 		<div class="row">
 			<div class="col-1-of-4">
-				<div class="amenity-box amenity-box--1" onclick="openNewPage('pages/amenities/hotels/index.html')">
+				<div class="amenity-box amenity-box--1" onclick="openNewPage('pages/amenities/hotel/dist/index.html')">
 					<div class="amenity-box__overlay"></div>
 					<h3 class="amenity-box__title">Lodge in Our Comfort
 					</h3>
@@ -130,7 +130,7 @@
 				</div>
 			</div>
 			<div class="col-1-of-4">
-				<div class="amenity-box amenity-box--2">
+				<div class="amenity-box amenity-box--2" onclick="openNewPage('pages/amenities/airline/dist/index.html')">
 					<div class="amenity-box__overlay"></div>
 					<h3 class="amenity-box__title">Glide through the Clouds</h3>
 					<div class="amenity-box__content">
@@ -145,7 +145,7 @@
 				</div>
 			</div>
 			<div class="col-1-of-4">
-				<div class="amenity-box amenity-box--3">
+				<div class="amenity-box amenity-box--3" onclick="openNewPage('pages/amenities/cab/dist/index.html')">
 					<div class="amenity-box__overlay"></div>
 					<h3 class="amenity-box__title">Commute in Comfort</h3>
 					<div class="amenity-box__content">
@@ -160,7 +160,7 @@
 				</div>
 			</div>
 			<div class="col-1-of-4">
-				<div class="amenity-box amenity-box--4">
+				<div class="amenity-box amenity-box--4" onclick="openNewPage('pages/amenities/attractions/dist/index.html')">
 					<div class="amenity-box__overlay"></div>
 					<h3 class="amenity-box__title">Discover the Extraordinary</h3>
 					<div class="amenity-box__content">
@@ -254,7 +254,7 @@
 								<p class="plan__cost-value">$12000</p>
 								<p class="plan__cost-duration">/ trip</p>
 							</div>
-							<a href="#" class="btn btn--brown">Become a Member</a>
+							<a href="#" class="btn btn--brown" data-membership-id="1">Become a Member</a>
 						</div>
 					</div>
 				</div>
@@ -283,7 +283,7 @@
 								<p class="plan__cost-value">$7500</p>
 								<p class="plan__cost-duration">/ trip</p>
 							</div>
-							<a href="#" class="btn btn--brown">Become a Member</a>
+							<a href="#" class="btn btn--brown" data-membership-id="2">Become a Member</a>
 						</div>
 					</div>
 				</div>
@@ -311,7 +311,7 @@
 								<p class="plan__cost-value">$3500</p>
 								<p class="plan__cost-duration">/ trip</p>
 							</div>
-							<a href="#" class="btn btn--brown">Become a Member</a>
+							<a href="#" class="btn btn--brown" data-membership-id="3">Become a Member</a>
 						</div>
 					</div>
 				</div>
@@ -321,48 +321,42 @@
 
 	<section class="contact-section">
 		<h2 class="heading-secondary">
-			<div class="u-align-center u-margin-bottom-big">
-				Contact Us
-			</div>
+		  <div class="u-align-center u-margin-bottom-big">
+			Get your membership
+		  </div>
 		</h2>
 		<div class="row">
-			<div class="contact">
-				<div class="contact__form">
-					<form class="form" target="#">
-						<div class="form__group">
-							<input type="text" class="form__input" id="name" placeholder="Full Name" required>
-							<label for="name" class="form__label">Full Name</label>
-						</div>
-						<div class="form__group">
-							<input type="email" class="form__input" id="email" placeholder="Email Address" required>
-							<label for="email" class="form__label">Email Address</label>
-						</div>
-						<div class="form__radio-group u-margin-bottom-medium">
-							<input type="radio" class="form__radio-input" id="platinum" name="membership">
-							<label for="platinum" class="form__radio-label"><span
-									class="form__radio-button"></span>Sapphire Membership</label>
-						</div>
-						<div class="form__radio-group">
-							<input type="radio" class="form__radio-input" id="junior" name="membership">
-							<label for="junior" class="form__radio-label"><span class="form__radio-button"></span>Royal
-								membership</label>
-						</div>
-						<div class="form__radio-group">
-							<input type="radio" class="form__radio-input" id="social" name="membership">
-							<label for="social" class="form__radio-label"><span class="form__radio-button"></span>Elite
-								Membership</label>
-						</div>
-						<div class="form__group">
-							<textarea class="form__textarea" name="message" placeholder="Your message"></textarea>
-						</div>
-						<div class="form__group">
-							<a href="#" class="btn-rectangular btn-rectangular--white">Send &rarr;</a>
-						</div>
-					</form>
+		  <div class="contact">
+			<div class="contact__form">
+			  <form class="form" target="#">
+				<div class="form__group">
+				  <input type="text" class="form__input" id="name" placeholder="Username" required>
+				  <label for="name" class="form__label">Username</label>
 				</div>
+				<div class="form__group">
+				  <input type="email" class="form__input" id="email" placeholder="Email Address" required>
+				  <label for="email" class="form__label">Email Address</label>
+				</div>
+				<div class="form__radio-group u-margin-bottom-medium">
+				  <input type="radio" class="form__radio-input" id="membership-1" name="membership">
+				  <label for="membership-1" class="form__radio-label"><span class="form__radio-button"></span>Sapphire Membership</label>
+				</div>
+				<div class="form__radio-group">
+				  <input type="radio" class="form__radio-input" id="membership-2" name="membership">
+				  <label for="membership-2" class="form__radio-label"><span class="form__radio-button"></span>Nitro Membership</label>
+				</div>
+				<div class="form__radio-group">
+				  <input type="radio" class="form__radio-input" id="membership-3" name="membership">
+				  <label for="membership-3" class="form__radio-label"><span class="form__radio-button"></span>Elite Membership</label>
+				</div>
+				<div class="form__group">
+				  <a href="#" class="btn-rectangular btn-rectangular--white">Send &rarr;</a>
+				</div>
+			  </form>
 			</div>
+		  </div>
 		</div>
-	</section>
+	  </section>
 
 	<footer class="footer">
 		<div class="footer__logo-box">
@@ -430,6 +424,7 @@
 	  </script>
 	  
 	<script src="index.js"></script>
+	<script src="mem.js"></script>
 </body>
 
 </html>
