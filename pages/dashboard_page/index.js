@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Make a request to the server to update the username and/or password
-        fetch('http://localhost:3050/update-username', {
+        fetch('http://localhost:3000/update-username', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

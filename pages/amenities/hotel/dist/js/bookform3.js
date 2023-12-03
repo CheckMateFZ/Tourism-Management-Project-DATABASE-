@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const contact = contactInput.value;
 
             try {
-                const response = await fetch("http://localhost:3002/createBooking", {
+                const response = await fetch("http://localhost:3000/createBooking", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const cost = costInput.value;
 
             try {
-                const response = await fetch("http://localhost:3004/createHotelBooking", {
+                const response = await fetch("http://localhost:3000/createHotelBooking", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

@@ -118,7 +118,7 @@
                 <!-- Basic Info Form -->
                 <section id="basicInfoFormSection">
                     <div class="mb2 align--center">
-                        <h3 class="mb1">Start Booking Your Attractions Now</h3>
+                        <h3 class="mb1">Start Booking Your Cab Now</h3>
                         <p>Start By Entering Your Personal Details&nbsp;</p>
                     </div>
                     <form id="bookingForm" onsubmit="submitBasicInfo(event)">
@@ -139,34 +139,55 @@
                         </div>
                     </form>
                 </section>
-                <!-- Attractions Info Form -->
-                <section id="attractionsInfoFormSection" style="display: none;">
+                <!-- Cab Info Form -->
+                <section id="carRentalFormSection" style="display: none;">
                     <div class="mb2 align--center">
-                        <h3 class="mb1">Enter Attractions Information</h3>
-                        <p>Provide details about the attractions</p>
+                        <h3 class="mb1">Enter Car Rental Information</h3>
+                        <p>Provide details about the car rental&nbsp;</p>
                     </div>
-                    <form id="attractionsInfoForm" onsubmit="submitAttractionsInfo(event)">
+                    <form id="carRentalForm" onsubmit="submitCarRentalInfo(event)">
                         <div class="grid-row">
                             <div class="grid-column span-half mt1">
-                                <label class="label" for="country">Country</label>
-                                <input class="form-control" name="country" id="country" type="text">
+                                <label class="label" for="pickupLocation">Pickup Location</label>
+                                <input class="form-control" name="pickupLocation" id="pickupLocation">
                             </div>
                             <div class="grid-column span-half mt1">
-                                <label class="label" for="city">City</label>
-                                <input class="form-control" name="city" id="city" type="text">
+                                <label class="label" for="dropOffLocation">Drop-off Location</label>
+                                <input class="form-control" name="dropOffLocation" id="dropOffLocation">
                             </div>
                         </div>
                         <div class="grid-row">
                             <div class="grid-column span-half mt1">
-                                <label class="label" for="attractionName">Attraction Name</label>
-                                <input class="form-control" name="attractionName" id="attractionName" type="text">
+                                <label class="label" for="date">Date</label>
+                                <input class="form-control" type="date" name="date" id="date">
+                            </div>
+                            <div class="grid-column span-half mt1">
+                                <label class="label" for="time">Time</label>
+                                <input class="form-control" type="time" name="time" id="time">
+                            </div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="grid-column span-half mt1">
+                                <label class="label" for="type">Type</label>
+                                <select class="form-control" name="type" id="type">
+                                    <option value="regular">Regular (4 passengers)</option>
+                                    <option value="extended">Extended (6 passengers)</option>
+                                    <option value="crew">Crew (10 passengers)</option>
+                                </select>
+                            </div>
+                            <!-- New "Cost" div -->
+                            <div class="grid-column span-half mt1">
+                                <label class="label" for="cost">Cost</label>
+                                <input class="form-control" type="text" name="cost" id="cost" readonly>
                             </div>
                         </div>
                         <div class="align--right mt1">
-                            <button class="btn btn--outline" type="submit">Submit Attractions Info</button>
+                            <button class="btn btn--outline" type="submit">Submit Car Rental Info</button>
                         </div>
                     </form>
                 </section>
+            </div>
+        </section>
 
     </main>
 
@@ -192,7 +213,7 @@
 
     <!-- The compiled JavaScript file -->
     <script src="js/production.js"></script>
-    <script src="js/bookform3.js"></script>
+    <script src="js/bookform4.js"></script>
 
 </body>
 

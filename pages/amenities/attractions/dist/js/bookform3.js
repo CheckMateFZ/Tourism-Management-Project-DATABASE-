@@ -7,20 +7,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Define the submitBasicInfo function
     window.submitBasicInfo = async function (event) {
-        console.log("submitBasicInfo function called");
         event.preventDefault();
 
         const nameInput = basicInfoForm.querySelector('input[name="name"]');
         const emailInput = basicInfoForm.querySelector('input[name="email"]');
         const contactInput = basicInfoForm.querySelector('input[name="Number"]');
-
         if (nameInput && emailInput && contactInput) {
             const name = nameInput.value;
             const email = emailInput.value;
             const contact = contactInput.value;
-
+            const UserId = loggedInUser.userId;
             try {
-                const response = await fetch("http://localhost:3002/createBooking", {
+                const response = await fetch("http://localhost:3000/createBooking", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -29,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         bookerName: name,
                         bookerEmail: email,
                         bookerContact: contact,
+                        UserId: UserId,
                     }),
                 });
 
@@ -74,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const attractionName = attractionNameInput.value;
 
             try {
-                const response = await fetch("http://localhost:3008/createAttractionBooking", {
+                const response = await fetch("http://localhost:3000/createAttractionBooking", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
