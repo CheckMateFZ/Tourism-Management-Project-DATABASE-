@@ -132,6 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     if (response.status === 201) {
                         console.log("Hotel information submitted successfully");
+                        window.location.href = "../../../bill/bill.html";
                         // You can add further actions after successfully submitting hotel information
                     } else {
                         console.error("Failed to submit hotel information");
