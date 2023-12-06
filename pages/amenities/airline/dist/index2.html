@@ -139,7 +139,6 @@
                         </div>
                     </form>
                 </section>
-                <!-- Airline Info Form -->
                 <section id="airlineFormSection" style="display: none;">
                     <div class="mb2 align--center">
                         <h3 class="mb1">Enter Airline Information</h3>
@@ -158,7 +157,9 @@
                             </div>
                             <div class="grid-column span-half mt1">
                                 <label class="label" for="airlineCompany">Airline Company</label>
-                                <input class="form-control" name="airlineCompany" id="airlineCompany">
+                                <select class="form-control" name="airlineCompany" id="airlineCompany">
+                                    <!-- Dropdown options will be populated dynamically using JavaScript -->
+                                </select>
                             </div>
                         </div>
                         <div class="align--right mt1">
@@ -190,12 +191,15 @@
                     <div class="grid-row">
                         <div class="grid-column span-half mt1">
                             <label class="label" for="flightSource">Flight Source</label>
-                            <input class="form-control" name="flightSource" id="flightSource" placeholder="Source">
+                            <select class="form-control" name="flightSource" id="flightSource" required>
+                                <!-- Dropdown options will be dynamically populated by JavaScript -->
+                            </select>
                         </div>
                         <div class="grid-column span-half mt1">
                             <label class="label" for="flightDestination">Flight Destination</label>
-                            <input class="form-control" name="flightDestination" id="flightDestination"
-                                placeholder="Destination">
+                            <select class="form-control" name="flightDestination" id="flightDestination" required>
+                                <!-- Dropdown options will be dynamically populated by JavaScript -->
+                            </select>
                         </div>
                     </div>
                     <div class="grid-row">
@@ -253,7 +257,7 @@
 
     <!-- The compiled JavaScript file -->
     <script src="js/production.js"></script>
-    <script src="js/bookform4.js"></script>
+    <script src="js/bookform5.js"></script>
 
 </body>
 

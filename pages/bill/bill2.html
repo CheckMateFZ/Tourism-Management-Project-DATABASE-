@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Example 1</title>
+  <link rel="stylesheet" href="style.css" media="all" />
+  <style>
+    body {
+      font-family: Arial, sans-serif; /* Set the desired font family for the entire document */
+    }
+
+    /* Add styles for the header */
+    header {
+      font-size: 18px;
+    }
+
+    /* Add styles for the table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    /* Add styles for the notices */
+    #notices {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    /* Add styles for the footer */
+    footer {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Replace with actual session storage key
+      const storedData = sessionStorage.getItem("loggedInUser");
+      const userData = storedData ? JSON.parse(storedData) : {};
+      console.log('userId from Session Storage:', userData.userId);
+
+      console.log('User Data from Session Storage:', userData);
+
+      // Assuming you're using Fetch for making the request
+      fetch('http://localhost:3000/get-user-bookings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: userData.userId,
+        }),
+      })
+      .then(response => response.json())
+      .then(backendResponse => {
+        console.log('Backend Response:', backendResponse);
+
+        // Find the booking with the maximum bookingID
+        const maxBooking = backendResponse.reduce((max, booking) => {
+          return booking.BookingID > max.BookingID ? booking : max;
+        }, backendResponse[0]);
+
+        // Update the client name, email, and dates in the HTML
+        document.getElementById('clientName').innerText = maxBooking?.Booker_Name || 'John Doe';
+        document.getElementById('clientEmail').innerText = maxBooking?.Booker_Email || 'john@example.com';
+
+        const bookingDate = maxBooking?.Booking_Date || 'August 17, 2015';
+        document.getElementById('invoiceDate').innerText = new Date(bookingDate).toLocaleDateString();
+
+        // Update other fields as needed
+        document.getElementById('hotelName').innerText = maxBooking?.Hotel_name || 'Hotel Name';
+        document.getElementById('hotelCost').innerText = `$${maxBooking?.HotelCost.toFixed(2) || '0.00'}`;
+
+        // Add logic to update other fields based on the selected booking
+
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <header class="clearfix">
+    <div id="logo">
+      <img src="logo.png">
+    </div>
+    <h1>INVOICE 3-2-1</h1>
+    <div id="company" class="clearfix">
+      <div>EEP PLANNERS</div>
+      <div>EEP BUILDING,<br /> FAST, KARACHI</div>
+      <div>(345) 519-0450</div>
+      <div><a href="mailto:eep@gmail.com">eep@gmail.com</a></div>
+    </div>
+    <div id="project">
+      <div><span>PURPOSE</span> HOTEL BILLING</div>
+      <div><span>CLIENT</span> <span id="clientName">John Doe</span></div>
+      <div><span>EMAIL</span> <a href="mailto:john@example.com" id="clientEmail">john@example.com</a></div>
+      <div><span>BOOKING DATE</span> <span id="invoiceDate">August 17, 2015</span></div>
+    </div>
+  </header>
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th class="service">SERVICE</th>
+          <th class="desc">DESCRIPTION</th>
+          <th>PRICE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Example row, replace with actual data -->
+        <tr>
+          <td class="service" id="hotelName">Hotel Name</td>
+          <td class="desc">BILLING</td>
+          <td class="unit" id="hotelCost">$0.00</td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="notices">
+      <div>NOTICE:</div>
+      <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+    </div>
+  </main>
+  <footer>
+    Invoice was created on a computer and is valid without the signature and seal.
+  </footer>
+</body>
+
+</html>

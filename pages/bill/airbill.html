@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Hotel Billing Invoice</title>
+  <title>Airline Booking Invoice</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -29,15 +29,22 @@
     #company {
       float: right;
       text-align: right;
-      color: white; /* Set the text color for project details */
+      color: white;
       margin-top: -60px;
+    }
+
+    #flightDetails {
+      float: left;
+      color: white;
+      margin-top: -60px;
+      text-align: left;
     }
 
     #project {
       float: left;
-      color: white; /* Set the text color for project details */
+      color: white;
       margin-top: -60px;
-      text-align: left; /* Adjust the top margin */
+      text-align: left;
     }
 
     main {
@@ -65,7 +72,7 @@
     #notices {
       margin-top: 20px;
       font-size: 14px;
-      color: #333; /* Set the text color for notices */
+      color: #333;
     }
 
     footer {
@@ -80,7 +87,7 @@
       const storedData = sessionStorage.getItem("loggedInUser");
       const userData = storedData ? JSON.parse(storedData) : {};
 
-      fetch('http://localhost:3000/get-user-bookings', {
+      fetch('http://localhost:3000/get-air-bookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -97,40 +104,44 @@
 
         document.getElementById('clientName').innerText = maxBooking?.Booker_Name || 'John Doe';
         document.getElementById('clientEmail').innerText = maxBooking?.Booker_Email || 'john@example.com';
-        document.getElementById('invoiceDate').innerText = new Date(maxBooking?.Booking_Date || 'August 17, 2015').toLocaleDateString();
-        document.getElementById('hotelName').innerText = maxBooking?.Hotel_name || 'Hotel Name';
-        document.getElementById('hotelCost').innerText = `$${maxBooking?.HotelCost.toFixed(2) || '0.00'}`;
+        document.getElementById('invoiceDate').innerText = new Date(maxBooking?.Booking_Date).toLocaleDateString();
+        document.getElementById('flightTime').innerText = maxBooking?.FlightTime || 'Not Available';
+        document.getElementById('flightDate').innerText = new Date(maxBooking?.FlightDate).toLocaleDateString();
+        document.getElementById('flightSource').innerText = maxBooking?.FlightSource || 'Not Available';
+        document.getElementById('flightDestination').innerText = maxBooking?.FlightDestination || 'Not Available';
+        document.getElementById('flightCost').innerText = `$${maxBooking?.FlightCost.toFixed(2) || '0.00'}`;
 
-        // Calculate total bill based on membership type
-        let totalBill = parseFloat(maxBooking?.HotelCost) || 0.0;
+        // Assuming the membership information is available in backendResponse
         let discountPercentage = 0;
-
-        switch (userData.membershipType) {
-          case 'sapphire':
-            discountPercentage = 5;
-            totalBill *= 0.95; // 5% off for Sapphire
-            break;
-          case 'nitro':
-            discountPercentage = 10;
-            totalBill *= 0.9; // 10% off for Nitro
-            break;
-          case 'elite':
-            discountPercentage = 20;
-            totalBill *= 0.8; // 20% off for Elite
-            break;
-          // Add more cases if needed for other membership types
-          default:
-            // No discount for other membership types
-            break;
+        if (userData.membershipType) {
+          switch (userData.membershipType) {
+            case 'sapphire':
+              discountPercentage = 5;
+              break;
+            case 'nitro':
+              discountPercentage = 10;
+              break;
+            case 'elite':
+              discountPercentage = 20;
+              break;
+            // Add more cases if needed for other membership types
+            default:
+              // No discount for other membership types
+              break;
+          }
         }
 
-        // Update the total bill in the HTML
-        document.getElementById('totalBill').innerText = `$${totalBill.toFixed(2)}`;
+        // Update the total cost with the discount
+        let totalCost = parseFloat(maxBooking?.FlightCost) || 0.0;
+        if (discountPercentage > 0) {
+          const discountAmount = (totalCost * (discountPercentage / 100)).toFixed(2);
+          totalCost -= discountAmount;
+          document.getElementById('discountInfo').innerText = `Discount (${userData.membershipType}): ${discountPercentage}%`;
+          document.getElementById('discountedAmount').innerText = `Discounted Amount: $${discountAmount}`;
+        }
 
-        // Display discount information
-        document.getElementById('discountInfo').innerText = `Discount (${userData.membershipType}): ${discountPercentage}%`;
-        document.getElementById('discountedAmount').innerText = `Discounted Amount: $${(maxBooking?.HotelCost - totalBill).toFixed(2)}`;
-
+        // Update the total cost in the HTML
+        document.getElementById('totalCost').innerText = `$${totalCost.toFixed(2)}`;
       })
       .catch(error => {
         console.error('Error fetching data:', error);
@@ -151,7 +162,7 @@
       <div>(345) 519-0450</div>
       <div>eep@gmail.com</div>
     </div>
-    <div id="project">
+    <div id="flightDetails">
       <div><span style="color: white;"></span></div>
       <div><span style="color: white;"></span> <span id="clientName">John Doe</span></div>
       <div><span style="color: white;"></span> <a id="clientEmail">john@example.com</a></div>
@@ -162,22 +173,27 @@
     <table>
       <thead>
         <tr>
-          <th class="service">Hotel Name</th>
+          <th class="service">FLIGHT DETAILS</th>
           <th class="desc">DESCRIPTION</th>
           <th>PRICE</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="service" id="hotelName">Hotel Name</td>
-          <td class="desc">BILLING</td>
-          <td class="unit" id="hotelCost">$0.00</td>
+          <td class="service">
+            <div><strong>Flight Time:</strong> <span id="flightTime">Not Available</span></div>
+            <div><strong>Flight Date:</strong> <span id="flightDate">Not Available</span></div>
+            <div><strong>Flight Source:</strong> <span id="flightSource">Not Available</span></div>
+            <div><strong>Flight Destination:</strong> <span id="flightDestination">Not Available</span></div>
+          </td>
+          <td class="desc">AIRLINE BOOKING</td>
+          <td class="unit" id="flightCost">$0.00</td>
         </tr>
       </tbody>
     </table>
 
-    <!-- Add an element to display the total bill -->
-    <div>Total Bill: <span id="totalBill">$0.00</span></div>
+    <!-- Add an element to display the total cost -->
+    <div>Total Cost: <span id="totalCost">$0.00</span></div>
 
     <!-- Add elements to display discount information -->
     <div id="discountInfo"></div>

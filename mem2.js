@@ -84,6 +84,10 @@ document.addEventListener("DOMContentLoaded", function () {
   
         // Check the response status
         if (response.status === 201) {
+          // Update membership type in sessionStorage
+          loggedInUser.membershipType = membershipType;
+          sessionStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+  
           alert("Membership created successfully!");
         } else if (response.status === 409) {
           alert("Membership already exists for this user");

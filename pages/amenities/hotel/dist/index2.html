@@ -134,53 +134,53 @@
                 </section>
                 <!-- Hotel Info Form -->
                 <section id="hotelFormSection" style="display: none;">
-                    <div class="mb2 align--center">
-                        <h3 class="mb1">Enter Hotel Information</h3>
-                        <p>Provide details about the hotel&nbsp;</p>
+                <div class="mb2 align--center">
+                    <h3 class="mb1">Enter Hotel Information</h3>
+                    <p>Provide details about the hotel&nbsp;</p>
+                </div>
+                <form id="hotelForm" onsubmit="submitHotelInfo(event)">
+                    <div class="grid-row">
+                        <div class="grid-column span-half mt1">
+                            <label class="label" for="country">Country</label>
+                            <select class="form-control" name="country" id="country"></select>
+                        </div>
+                        <div class="grid-column span-half mt1">
+                            <label class="label" for="city">City</label>
+                            <select class="form-control" name="city" id="city"></select>
+                        </div>
                     </div>
-                    <form id="hotelForm" onsubmit="submitHotelInfo(event)">
-                        <div class="grid-row">
-                            <div class="grid-column span-half mt1">
-                                <label class="label" for="hotelName">Hotel Name</label>
-                                <input class="form-control" name="hotelName" id="hotelName">
-                            </div>
-                            <div class="grid-column span-half mt1">
-                                <label class="label" for="country">Country</label>
-                                <input class="form-control" name="country" id="country">
-                            </div>
+                    <div class="grid-row">
+                        <div class="grid-column span-half mt1">
+                            <label class="label" for="hotelName">Hotel Name</label>
+                            <select class="form-control" name="hotelName" id="hotelName"></select>
                         </div>
-                        <div class="grid-row">
-                            <div class="grid-column span-half mt1">
-                                <label class="label" for="city">City</label>
-                                <input class="form-control" name="city" id="city">
-                            </div>
-                            <div class="grid-column span-half mt1">
-                                <label class="label" for="numOfPeople">Number of People</label>
-                                <select class="form-control" name="numOfPeople" id="numOfPeople">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            </div>
+                        <div class="grid-column span-half mt1">
+                            <label class="label" for="numOfPeople">Number of People</label>
+                            <select class="form-control" name="numOfPeople" id="numOfPeople">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
                         </div>
-                        <div class="grid-row">
-                            <div class="grid-column span-half mt1">
-                                <label class="label" for="cost">Cost</label>
-                                <input class="form-control" name="cost" id="cost">
-                            </div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="grid-column span-half mt1">
+                            <label class="label" for="cost">Cost</label>
+                            <input class="form-control" name="cost" id="cost">
                         </div>
-                        <div class="align--right mt1">
-                            <button class="btn btn--outline" type="submit">Submit Hotel Info</button>
-                        </div>
-                    </form>
-                </section>
+                    </div>
+                    <div class="align--right mt1">
+                        <button class="btn btn--outline" type="submit">Submit Hotel Info</button>
+                    </div>
+                </form>
+            </section>
             </div>
         </section>
         
@@ -205,7 +205,7 @@
 
     <!-- The compiled JavaScript file -->
     <script src="js/production.js"></script>
-    <script src="js/bookform4.js"></script>
+    <script src="js/bookform5.js"></script>
 
     </body>
 </html>
