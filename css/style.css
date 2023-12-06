@@ -257,6 +257,61 @@ body {
     transform: translate(-50%, -50%);
     text-align: center; }
 
+    .chatgpt-section {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background-color: #f8f8f8;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chatgpt-header {
+      display: flex;
+      align-items: center;
+  }
+  
+  .chatgpt-label {
+      margin-right: 10px;
+      font-weight: bold;
+  }
+  
+  .chatgpt-input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      flex-grow: 1;
+  }
+  
+  .chatgpt-btn {
+      padding: 8px 15px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+  
+  .chatgpt-btn:hover {
+      background-color: #45a049;
+  }
+  
+  .chatgpt-response {
+      margin-top: 15px;
+  }
+  
+  .chatgpt-heading {
+      font-size: 16px;
+      margin-bottom: 8px;
+  }
+  
+  .chatgpt-text {
+      font-size: 14px;
+      color: #333;
+  }
 .row {
   max-width: 114rem;
   margin: 0 auto; }

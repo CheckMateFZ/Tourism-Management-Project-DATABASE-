@@ -16,6 +16,9 @@
 	<link rel="manifest" href="vendors/favicon/site.webmanifest">
 
 	<title>Epic Expenditure Planner-A great Experience</title>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+	
 </head>
 
 <body>
@@ -53,6 +56,20 @@
 			<!-- Display the username -->
 			<div class="header__username" style="display: none;"></div>
 		  </div>
+
+		  <div class="toggle-chatgpt-btn" onclick="toggleChatGPT()">Toggle ChatGPT</div>
+			<div class="chatgpt-section" id="chatgptSection">
+				<div class="chatgpt-header">
+					<label for="prompt" class="chatgpt-label">ChatGPT Prompt:</label>
+					<input type="text" id="prompt" class="chatgpt-input" placeholder="Type your prompt here">
+					<button onclick="generateResponse()" class="chatgpt-btn">Submit</button>
+				</div>
+
+				<div class="chatgpt-response">
+					<h2 class="chatgpt-heading">ChatGPT Response:</h2>
+					<div id="response" class="chatgpt-text"></div>
+				</div>
+			</div>
 	</header>
 
 	<div class="about-section">
@@ -425,6 +442,34 @@
 	  
 	<script src="index.js"></script>
 	<script src="mem2.js"></script>
+	<script>
+		function generateResponse() {
+			const prompt = document.getElementById('prompt').value;
+	
+			$.ajax({
+				url: 'https://api.openai.com/v1/chat/completions',
+				type: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'Authorization': 'Bearer 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'
+				},
+				data: JSON.stringify({
+					model: 'gpt-3.5-turbo',
+					messages: [
+						{ role: 'system', content: 'You are a helpful assistant.' },
+						{ role: 'user', content: prompt }
+					]
+				}),
+				success: function (data) {
+					const response = data.choices[0].message.content.trim();
+					document.getElementById('response').innerHTML = response;
+				},
+				error: function (error) {
+					console.error('Error fetching response:', error);
+				}
+			});
+		}
+	</script>
 </body>
 
 </html>
